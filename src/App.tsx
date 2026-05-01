@@ -172,6 +172,7 @@ export default function App() {
                         <img 
                           src={item.images[0]} 
                           alt={item.name} 
+                          referrerPolicy="no-referrer"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         />
                       </div>
@@ -394,6 +395,7 @@ export default function App() {
                     <img 
                       src={PRODUCTS[0].images[0]} 
                       alt={PRODUCTS[0].name}
+                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                     />
                     
@@ -431,7 +433,7 @@ export default function App() {
                           onClick={() => navigateToProduct(p)}
                         >
                           <div className="w-20 h-20 bg-brand-muted flex-shrink-0 overflow-hidden relative">
-                             <img src={p.images[0]} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+                             <img src={p.images[0]} referrerPolicy="no-referrer" className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
                              <div className="absolute inset-0 bg-brand-accent opacity-0 group-hover:opacity-20 transition-opacity"></div>
                           </div>
                           <div className="space-y-1">
@@ -472,6 +474,7 @@ export default function App() {
                         <img 
                           src={product.images[0]} 
                           alt={product.name} 
+                          referrerPolicy="no-referrer"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.2s] ease-out brightness-[0.98] group-hover:brightness-100"
                         />
                         <div className="absolute top-8 left-8 flex flex-col gap-2">
@@ -500,6 +503,42 @@ export default function App() {
                   ))}
                 </div>
               </div>
+
+              {/* Philosophy Block */}
+              <div className="px-6 md:px-12 py-40 border-t border-brand-charcoal/10 bg-brand-bone">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center max-w-[1440px] mx-auto">
+                  <div className="order-2 lg:order-1 relative h-[600px] overflow-hidden grayscale hover:grayscale-0 transition-all duration-[2s]">
+                    <img 
+                      src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=1200" 
+                      alt="Brand Philosophy" 
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/20 to-transparent" />
+                  </div>
+                  <div className="order-1 lg:order-2 space-y-12 pr-0 lg:pr-12">
+                    <span className="font-mono text-xs uppercase tracking-[0.4em] opacity-40">Our Philosophy</span>
+                    <h2 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[0.9]">
+                      DESIGNED WITH<br />
+                      RESTRAINT. WORN<br />
+                      WITH INTENTION.
+                    </h2>
+                    <p className="text-xl text-brand-charcoal/60 leading-relaxed font-medium">
+                      Studio Ritual was born in Jakarta with a simple goal: to create objects that facilitate the small rituals of daily life. We believe in high-quality materials, minimal silhouettes, and the power of a well-considered detail.
+                    </p>
+                    <div className="pt-8 grid grid-cols-1 sm:grid-cols-2 gap-12">
+                      <div className="space-y-4">
+                        <span className="font-mono text-[10px] uppercase tracking-widest opacity-40 italic">01 / Materiality</span>
+                        <p className="text-sm leading-snug">We source ethically, favoring recycled and long-lasting components.</p>
+                      </div>
+                      <div className="space-y-4">
+                        <span className="font-mono text-[10px] uppercase tracking-widest opacity-40 italic">02 / Local Craft</span>
+                        <p className="text-sm leading-snug">Collaborating with skilled Indonesian artisans to ensure excellence.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           )}
 
@@ -524,7 +563,7 @@ export default function App() {
                         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                         className="aspect-[4/5] bg-neutral-200 overflow-hidden"
                       >
-                        <img src={img} alt={`${selectedProduct.name} ${idx + 1}`} className="w-full h-full object-cover" />
+                        <img src={img} alt={`${selectedProduct.name} ${idx + 1}`} referrerPolicy="no-referrer" className="w-full h-full object-cover" />
                       </motion.div>
                     ))}
                   </div>
@@ -637,7 +676,7 @@ export default function App() {
                       onClick={() => navigateToProduct(p)}
                     >
                       <div className="aspect-[3/4] bg-neutral-200 overflow-hidden mb-4">
-                        <img src={p.images[0]} alt={p.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+                        <img src={p.images[0]} alt={p.name} referrerPolicy="no-referrer" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                       </div>
                       <h4 className="text-lg font-bold tracking-tight">{p.name}</h4>
                       <p className="font-mono text-[10px] uppercase opacity-40"><CurrencyFormatter value={p.price} /></p>
@@ -804,7 +843,7 @@ export default function App() {
                   {cart.map((item) => (
                     <div key={`${item.id}-${item.selectedSize}`} className="flex gap-6 items-center">
                       <div className="w-20 aspect-[3/4] bg-neutral-200 shrink-0">
-                        <img src={item.images[0]} alt={item.name} className="w-full h-full object-cover" />
+                        <img src={item.images[0]} alt={item.name} referrerPolicy="no-referrer" className="w-full h-full object-cover" />
                       </div>
                       <div className="flex-1 space-y-1">
                         <h4 className="font-bold tracking-tight text-sm uppercase">{item.name}</h4>
@@ -871,7 +910,10 @@ export default function App() {
               </div>
 
               <div className="pt-12 flex flex-col md:flex-row gap-6 justify-center">
-                <button className="h-20 px-12 bg-brand-accent text-brand-bone font-mono text-xs uppercase tracking-widest flex items-center justify-center gap-4 transition-transform active:scale-95 group">
+                <button 
+                  onClick={() => window.open('https://wa.me/1234567890', '_blank')}
+                  className="h-20 px-12 bg-brand-accent text-brand-bone font-mono text-xs uppercase tracking-widest flex items-center justify-center gap-4 transition-transform active:scale-95 group"
+                >
                   <MessageCircle size={24} />
                   Confirm via WhatsApp
                 </button>
@@ -948,7 +990,10 @@ export default function App() {
                   <h3 className="text-xl font-bold uppercase">Need Assistance?</h3>
                   <p className="text-brand-charcoal/60 text-sm leading-relaxed">Our team is available for real-time sizing consultation and order tracking via WhatsApp. Every ritual is personal.</p>
                 </div>
-                <button className="h-16 px-12 bg-brand-accent text-brand-bone font-mono text-xs uppercase tracking-widest flex items-center justify-center gap-4 hover:bg-brand-charcoal transition-colors">
+                <button 
+                  onClick={() => window.open('https://wa.me/1234567890', '_blank')}
+                  className="h-16 px-12 bg-brand-accent text-brand-bone font-mono text-xs uppercase tracking-widest flex items-center justify-center gap-4 hover:bg-brand-charcoal transition-colors focus:outline-none"
+                >
                   <MessageCircle size={20} />
                   Chat with Curator
                 </button>

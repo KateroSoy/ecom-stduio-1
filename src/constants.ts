@@ -17,8 +17,8 @@ export const PRODUCTS: Product[] = [
     materials: ['Recycled Rubber', 'Microfiber Suede', 'Nylon Straps'],
     care: ['Wipe clean with a damp cloth.', 'Do not submerge in water.', 'Air dry only.'],
     images: [
-      'https://images.unsplash.com/photo-1603487759148-9fbe44775871?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1549439602-43ebca2327af?auto=format&fit=crop&q=80&w=1200'
+      'https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&q=80&w=1200'
     ],
     isNew: true
   },
